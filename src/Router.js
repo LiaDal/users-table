@@ -1,7 +1,9 @@
-import React, { useContext } from 'react'
-import { Navigate, Outlet, BrowserRouter, useLocation } from 'react-router-dom'
-import Userfront, { SignupForm, LoginForm } from "@userfront/toolkit/react";
-import Table from './Table'
+import React from 'react'
+import { Navigate, BrowserRouter } from 'react-router-dom'
+import Userfront from "@userfront/toolkit/react";
+import Table from './components/Table'
+import Home from './Home'
+import Login from './components/Login'
 import { Routes, Route } from 'react-router-dom'
 
 
@@ -9,8 +11,8 @@ const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<SignupForm />}></Route>
-        <Route path="/login" element={<LoginForm />}></Route>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/login" element={<Login />}></Route>
         <Route path="/dashboard" element={
           <RequireAuth>
             <Table />
